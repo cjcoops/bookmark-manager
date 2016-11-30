@@ -10,4 +10,8 @@ RSpec.feature "User Accounts" do
   scenario "checks the user count increases by 1" do
     expect {sign_up}.to change(User, :count).by(1)
   end
+
+  scenario "email has been added" do
+    expect(User.first.email). to eq "chrixs99@gmail.com"
+  end
 end

@@ -32,7 +32,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/users/new' do
-    erb :new
+    erb :'users/new'
   end
 
   run! if app_file == $0
