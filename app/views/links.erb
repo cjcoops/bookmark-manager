@@ -1,3 +1,10 @@
-<% @links.each do |link| %>
-Title <%= link.title %>
-<% end %>
+<h1> Bookmarks </h1>
+
+<ul id="links">
+  <% @links.each do |link| %>
+  <li>
+    Title: <%= link.title %>
+    URL: <%= link.url %>
+  </li>
+  <% end %>
+</ul>
