@@ -8,4 +8,14 @@ RSpec.feature "Tagging" do
     link = Link.first
     expect(link.tags.map(&:name)).to include("Cats")
   end
+
+  scenario "Adding multiple tags to a link" do
+    visit "/links/new"
+    fill_in("url", with: "https://cathub.com/")
+    fill_in("title", with: "Cathub")
+    fill_in("tags", with: "Cats Dogs")
+    click_button("Save")
+    link = Link.first
+    expect(link.tags.map(&:name)).to include("Cats", "Dogs")
+  end
 end
