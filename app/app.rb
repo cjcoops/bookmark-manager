@@ -20,7 +20,7 @@ class BookmarkManager < Sinatra::Base
     params[:tags].split.each do |tag|
       link.tags << Tag.first_or_create(name: tag)
     end
-    
+
     link.save
     redirect to('/links')
   end
@@ -29,6 +29,10 @@ class BookmarkManager < Sinatra::Base
     tag = Tag.first(name: params[:name])
     @links = tag ? tag.links : []
     erb :links
+  end
+
+  get '/users/new' do
+    erb :new
   end
 
   run! if app_file == $0
